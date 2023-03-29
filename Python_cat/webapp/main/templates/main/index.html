@@ -4,9 +4,14 @@
     <meta charset="utf-8">
     <title>Доктор Айболит</title>
 	    <style>
+	       .warning {
+    background-color: #C1172C; /* Цвет фона */
+    color: #FFFFFF; /* Цвет текста */
+   }
+
 .flex {
    display: flex;
-   justify-content: space-between;
+   justify-content: space-between;/* space-between */
 }
 
 	            .tools {
@@ -128,6 +133,40 @@
   <h1><center><em>Сазонова М.В.</em></center></h1>
     </div>
 
+    		<table>
+  <thead>
+    <tr>
+      <th>время</th>
+      <th>пн</th>
+      <th>вт</th>
+      <th>ср</th>
+	  <th>чт</th>
+      <th>пт</th>
+      <th>сб</th>
+	  <th>вс</th>
+    </tr>
+<center><h3 class="warning">возможно это можно внедрить</h3></center>
+  </thead>
+    <tbody>
+                        {% for i in hk %}
+                                <tr>
+                                    {% for j in i %}
+                                            {% if j == 1 %}
+                                                <td><button class="red">запись</button></td>
+                                            {% else %}
+                                                {% if j == 0 %}
+                                                    <td><button class ="green">запись</button></td>
+                                                {% else %}
+                                                    <td>{{j}}</td>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                </tr>
+                        {% endfor %}
+    </tbody>
+    </table>
+<center><h3 class="warning">возможно это можно внедрить</h3></center>
+
 
     <h3>Я успешно помогла справиться своим пациентам со следующими проблемами со здоровьем:</h3>
        <div  class="flex">
@@ -160,10 +199,11 @@
     <li><h3>Дисфункция ВНЧС</h3></li>
   </ul>
         </div>
-
-
-
-
+<div  class="flex">
+  <a href = "https://mc-most.com/wp-content/uploads/2019/10/sertifikat-inglish-750.jpg?v=1601459985"><center><img src= https://mc-most.com/wp-content/uploads/2019/10/sertifikat-inglish-750.jpg?v=1601459985  ></center></a>
+  <a href = "https://mc-most.com/wp-content/uploads/2019/10/sertifikat-angliya-sazonova-750.jpg?v=1601459891"><center><img src= https://mc-most.com/wp-content/uploads/2019/10/sertifikat-angliya-sazonova-750.jpg?v=1601459891 ></center></a>
+  <a href = "https://mc-most.com/wp-content/uploads/2019/10/sertifikat-enro-750.jpg?v=1601459909"><center><img src= https://mc-most.com/wp-content/uploads/2019/10/sertifikat-enro-750.jpg?v=1601459909 ></center></a>
+</div>
 
 
 
