@@ -8,6 +8,10 @@
     background-color: #C1172C; /* Цвет фона */
     color: #FFFFFF; /* Цвет текста */
    }
+   	       .glaf {
+    background-color: #002E5D; /* Цвет фона */
+    color: #FFFFFF; /* Цвет текста */
+   }
 
 .flex {
    display: flex;
@@ -69,13 +73,9 @@
         flex-wrap: wrap;
         }
         h1 {
-        background: #002E5D; /* Цвет фона под заголовком */
-        color: white; /* Цвет текста */
         padding: 2px; /* Поля вокруг текста */
         }
         h2 {
-        background: #002E5D; /* Цвет фона под заголовком */
-        color: white; /* Цвет текста */
         padding: 2px; /* Поля вокруг текста */
         }
         table {
@@ -115,31 +115,33 @@
     </style>
   </head>
 <header>
-
   <nav>
 
-      <h1 align="center"><a href="/" style="color: #FFFFFF">Главная</a>
-       <a href="/appointment" style="color: #FFFFFF">Запись</a>
-       <a href="/contacts1" style="color: #FFFFFF">Контакты</a></h1>
+      <h1 align="center" class="glaf"><a href="/" style="color: #FFFFFF">Главная</a>
+       <a href="#appointment" style="color: #FFFFFF" >Запись</a>
+       <a href="#contacts" style="color: #FFFFFF" >Контакты</a></h1>
 
   </nav>
+
+
+
 </header>
 </aside>
   <div>
   <body background=https://img.freepik.com/free-vector/white-rhombus-pattern_1053-249.jpg?w=826&t=st=1680111309~exp=1680111909~hmac=a383c41c932752531235b375eabc4cebcfb13b39c71254f8adf62c7f479fc13f>
-  <h1><center><strong>Сазонова Мария Владимировна</strong></center></h1>
-  <h2><center><em>Остеопат , Психолог , Массажист</em></center></h2>
+  <h1 class="glaf"><center><strong>Сазонова Мария Владимировна</strong></center></h1>
+  <h2 class="glaf"><center><em>Остеопат , Психолог , Массажист</em></center></h2>
   <center ><img src= https://sun9-5.userapi.com/impg/ENL0RFqLOdWn5GhBwYWvf6iybHdRUslfONHn8Q/wxCmf1qPMf8.jpg?size=588x852&quality=95&sign=7aa478e49ac5ce29ac9beecd0a2ce391&type=album></center>
-  <h1><center>"В остеопатии я нашла свое предназначение и смысл своей жизни. Это занятие требует доброты, честности, самоотдачи, постоянного развития"</center></h1>
-  <h1><center><em>Сазонова М.В.</em></center></h1>
+  <h1 class="glaf"><center>"В остеопатии я нашла свое предназначение и смысл своей жизни. Это занятие требует доброты, честности, самоотдачи, постоянного развития"</center></h1>
+  <h1 class="glaf"><center><em>Сазонова М.В.</em></center></h1>
   </div>
 
 
 
-<center><h3 class="warning">возможно это можно внедрить</h3></center>
 
 
-       <center><div>
+
+       <center><div   id="appointment">
            <button class="DodgerBlue"><p><</p></button>
            <button class="DeepSkyBlue"><p>{{DDMMYYYYn}}-{{DDMMYYYYk}}</p></button>
            <button class="DodgerBlue"><p>></p></button>
@@ -180,10 +182,10 @@
                         {% endfor %}
     </tbody>
     </table>
-<center><h3 class="warning">возможно это можно внедрить</h3></center>
 
 
-    <center><h1>Я успешно помогла справиться своим пациентам со следующими проблемами со здоровьем:</h1></center>
+
+    <center><h1 class="glaf">Я успешно помогла справиться своим пациентам со следующими проблемами со здоровьем:</h1></center>
        <div  class="flex">
   <ul>
     <li><h3>Остеопатия в женской гинекологии;</h3></li>
@@ -220,7 +222,7 @@
   </ul>
 
         </div>
-             <center><h1>Мои дипломы</h1></center>
+             <center><h1  class="glaf">Мои дипломы</h1></center>
 <div  class="flex">
   <a href = "https://mc-most.com/wp-content/uploads/2019/10/sertifikat-inglish-750.jpg?v=1601459985"><center><img src= https://mc-most.com/wp-content/uploads/2019/10/sertifikat-inglish-750.jpg?v=1601459985  ></center></a>
   <a href = "https://mc-most.com/wp-content/uploads/2019/10/sertifikat-angliya-sazonova-750.jpg?v=1601459891"><center><img src= https://mc-most.com/wp-content/uploads/2019/10/sertifikat-angliya-sazonova-750.jpg?v=1601459891 ></center></a>
@@ -231,6 +233,15 @@
 </div>
 
 
+    <div id="contacts"><center><h1 class="glaf">Мои контакты</h1></center></div>
+     <div  class="text-block">
+    <ul>
+    <li><h2>Телефон</h2>
+    <h2><a href="https://zoomquilt.org/" style="color: #000000">8-800-555-35-35</a></h2></li>
+    <li><h2>Почта</h2>
+    <h2><a href="http://david.li/paint/" style="color: #000000">Dr_Livesey@gmail.com</a></h2></li>
+    </ul>
+    </div>
 
     <a href = "https://www.trees-and-lambdas.info/matushansky/stirlitz.html"><center><img src= http://toplogos.ru/images/logo-whatsapp.png width="0" height="0"></center></a>
 
