@@ -15,10 +15,12 @@
             padding: 1rem 1     rem; /* Поля вокруг текста */
             margin-bottom: 0rem; /* Отступ снизу */
             }
-            .green { background: #73A353; }
-            .red { background: #C1172C; }
-            .orange { background: #F7941E; }
-            .green { background: #006400; }
+            .green { background: #7FFF00; }
+            .red { background: #DC143C; }
+            .DeepSkyBlue { background: #00BFFF; }
+            .white { background: #F7941E; }
+            .DodgerBlue { background:; }
+
 
         img{
         width:300px;
@@ -79,6 +81,8 @@
         .text_novig{
         flex-direction: column;
         }
+
+
   </style>
 </head>
 <body  background=https://img.freepik.com/free-vector/white-rhombus-pattern_1053-249.jpg?w=826&t=st=1680111309~exp=1680111909~hmac=a383c41c932752531235b375eabc4cebcfb13b39c71254f8adf62c7f479fc13f>
@@ -91,7 +95,20 @@
        <a href="/contacts1" style="color: #FFFFFF">Контакты</a></h1>
 
   </nav>
+
 </header>
+
+
+
+
+
+       <center><div>
+           <button class="DodgerBlue"><p><</p></button>
+           <button class="DeepSkyBlue"><p>{{DDMMYYYYn}}-{{DDMMYYYYk}}</p></button>
+           <button class="DodgerBlue"><p>></p></button>
+       </div></center>
+
+
   		<table>
   <thead>
     <tr>
@@ -111,10 +128,10 @@
                                 <tr>
                                     {% for j in i %}
                                             {% if j == 1 %}
-                                                <td><button class="red">запись</button></td>
+                                                <td><button class="red"><p>запись</p></button></td>
                                             {% else %}
                                                 {% if j == 0 %}
-                                                    <td><button class ="green">запись</button></td>
+                                    <td><button class ="green"><p>запись</p></button></td>
                                                 {% else %}
                                                     <td>{{j}}</td>
                                                 {% endif %}
