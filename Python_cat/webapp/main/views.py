@@ -30,11 +30,13 @@ def main_page(request):
         connection_string = 'DRIVER={SQL Server};SERVER=WIN-MQA3LH805ND\MSSQLSERVER02;DATABASE=DOCTOR;'
         connection = pyodbc.connect(connection_string)
         cursor = connection.cursor()
+        cursor.execute('exec del_all_and_add_test')
         cursor.execute('select DataTime from timetable')
         result = cursor.fetchall()
         connection.commit()
         connection.close()
         return result
+
 
     a13 = ['13:00']
     a14 = ['14:00']
