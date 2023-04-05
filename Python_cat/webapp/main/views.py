@@ -3,20 +3,9 @@ import random as r
 import sys
 import os
 
-#костыли{
-import pyodbc
 
 
-def get_all_timetable():
-    connection_string = 'DRIVER={SQL Server};SERVER=WIN-MQA3LH805ND\MSSQLSERVER02;DATABASE=DOCTOR;'
-    connection = pyodbc.connect(connection_string)
-    cursor = connection.cursor()
-    cursor.execute('select DataTime from timetable')
-    result = cursor.fetchall()
-    connection.commit()
-    connection.close()
-    return result
-#}
+
 
 sys.path.insert(1, os.path.join(sys.path[0], '../..'))
 from Python_cat.Python_SQL import test_db
@@ -25,7 +14,7 @@ from Python_cat.Python_SQL import test_db
 # Create your views here.
 def main_page(request):
     import pyodbc
-
+    # костыли{
     def get_all_clients():
         connection_string = 'DRIVER={SQL Server};SERVER=WIN-MQA3LH805ND\MSSQLSERVER02;DATABASE=DOCTOR;'
         connection = pyodbc.connect(connection_string)
@@ -47,7 +36,7 @@ def main_page(request):
     a19 = ['19:00']
     a20 = ['20:00']
 
-    nn = 8
+    nn = 8 #допустимые значения: 1 8 15
     nk = nn + 7
 
     b = get_all_clients()
@@ -282,9 +271,9 @@ def main_page(request):
     a.append(a18)
     a.append(a19)
     a.append(a20)
-
-    ddmmyyyyn=str(nn)+"01:"+"2066"
-    ddmmyyyyk=str(nk)+"01:"+"2066"
+    # }
+    ddmmyyyyn=str(nn)+":01:"+"2066"
+    ddmmyyyyk=str(nk)+":01:"+"2066"
 
 
     data = {
