@@ -1,5 +1,5 @@
 from django.shortcuts import render
-import random as r
+from .forms import *
 import sys
 import os
 
@@ -16,7 +16,7 @@ def main_page(request):
     import pyodbc
     # костыли{
     def get_all_clients():
-        connection_string = 'DRIVER={SQL Server};SERVER=WIN-MQA3LH805ND\MSSQLSERVER02;DATABASE=DOCTOR;'
+        connection_string = 'DRIVER={SQL Server};SERVER=.;DATABASE=DOCTOR;'
         connection = pyodbc.connect(connection_string)
         cursor = connection.cursor()
         cursor.execute('exec del_all_and_add_test')
@@ -293,3 +293,10 @@ def get_test(request):
     return render(request, 'main/test.html', data)
 
 #>>>>>>> main
+
+
+def forms_page(request):
+    data = {
+        'form': client_form()
+    }
+    return render(request, 'main/forms.html', data)

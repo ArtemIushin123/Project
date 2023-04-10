@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{form.name}} <br>
+    {{form.age}} <br>
+    {{form.birth_date}} <br>
+    {{form.mail}} <br>
+    <button type="submit">Тык</button>
+</form>
+</body>
+</html>

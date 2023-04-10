@@ -4,8 +4,9 @@ from . import views
 
 urlpatterns = [
     path('', views.main_page),
-#<<<<<<< HEAD
-#=======
-    path('test', views.get_test)
-#>>>>>>> main
+    # <<<<<<< HEAD
+    # =======
+    path('test', views.get_test),
+    # >>>>>>> main
+    path('forms', views.forms_page)
 ]
