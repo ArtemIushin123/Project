@@ -8,5 +8,6 @@ urlpatterns = [
     # =======
     path('test', views.get_test),
     # >>>>>>> main
-    path('forms', views.forms_page)
+    path('forms', views.forms_page),
+    path('index', views.main_page)
 ]

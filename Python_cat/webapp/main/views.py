@@ -1,11 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import *
 import sys
 import os
-
-
-
-
 
 sys.path.insert(1, os.path.join(sys.path[0], '../..'))
 from Python_cat.Python_SQL import test_db
@@ -26,7 +22,6 @@ def main_page(request):
         connection.close()
         return result
 
-
     a13 = ['13:00']
     a14 = ['14:00']
     a15 = ['15:00']
@@ -36,7 +31,7 @@ def main_page(request):
     a19 = ['19:00']
     a20 = ['20:00']
 
-    nn = 8 #допустимые значения: 1 8 15
+    nn = 8  # допустимые значения: 1 8 15
     nk = nn + 7
 
     b = get_all_clients()
@@ -272,9 +267,8 @@ def main_page(request):
     a.append(a19)
     a.append(a20)
     # }
-    ddmmyyyyn=str(nn)+":01:"+"2066"
-    ddmmyyyyk=str(nk)+":01:"+"2066"
-
+    ddmmyyyyn = str(nn) + ":01:" + "2066"
+    ddmmyyyyk = str(nk) + ":01:" + "2066"
 
     data = {
         'hk': a,
@@ -284,19 +278,26 @@ def main_page(request):
     }
     return render(request, "main/index.html", data)
 
-#<<<<<<< HEAD
-#=======
+
+# <<<<<<< HEAD
+# =======
 def get_test(request):
     data = {
         'clients': test_db.get_all_clients()
     }
     return render(request, 'main/test.html', data)
 
-#>>>>>>> main
+
+# >>>>>>> main
 
 
 def forms_page(request):
+    if request.method == 'POST':
+        form = client_form(request.POST)
+        return redirect('http://127.0.0.1:8000/')  # не понял как Максим на уроке сделал норм переход
+
     data = {
-        'form': client_form()
+        'form': client_form(),
+
     }
     return render(request, 'main/forms.html', data)
