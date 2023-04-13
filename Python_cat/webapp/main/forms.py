@@ -12,7 +12,7 @@ class client_form(ModelForm):
                 'class': '=color: #FFFFFF',
                 'placeholder': 'Введите имя'
             }),
-            'telephone': NumberInput(attrs={
+            'telephone': TextInput(attrs={
                 'class': '',
                 'placeholder': 'Введите номер телефона'
             }),
