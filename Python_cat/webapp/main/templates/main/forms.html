@@ -1,11 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Регистрация
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Доктор Айболит</title>
+	    <style>
+	       .warning {
+    background-color: #C1172C; /* Цвет фона */
+    color: #FFFFFF; /* Цвет текста */
+   }
+   	       .glaf {
+    background-color: #002E5D; /* Цвет фона */
+    color: #FFFFFF; /* Цвет текста */
+   }
+
+.flex {
+   display: flex;
+   justify-content: space-between;/* space-between */
+}
+
+	            .tools {
+    position: relative;
+    height: 40px;
+    margin: 10px 0px 0px 0px;
+}
+.tools .center{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+.tools div {
+    margin: 10px 5px 0px 5px;
+}
+
+
+
+                .text-block {
+        margin-left:40rem;
+        }
+
+        flex-direction: column;
+	     button {
+            background: #008EB0; /* Синий цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1     rem; /* Поля вокруг текста */
+            margin-bottom: 0rem; /* Отступ снизу */
+            }
+            .green { background: #7FFF00; }
+            .red { background: #DC143C; }
+            .DeepSkyBlue { background: #00BFFF; }
+            .white { background: #F7941E; }
+            .DodgerBlue { background:; }
+
+        img{
+        width:300px;
+        }
+
+        .baton{
+        width:60px;
+        background-color:blue;
+        margin:10px;
+        border: 3px solid green;
+
+        }
+        .sale{
+        background-color:red;
+        }
+
+        .day
+        {
+        display:flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        }
+        h1 {
+        padding: 2px; /* Поля вокруг текста */
+        }
+        h2 {
+        padding: 2px; /* Поля вокруг текста */
+        }
+        table {
+        margin: auto; /* Выравниваем таблицу по центру окна  */
+        }
+        td {
+        text-align: center; /* Выравниваем текст по центру ячейки */
+        }
+        .example-3 {
+        display: flex;
+        flex-direction: column;
+        outline: 2px dashed #ccc;/* обводка блока */
+        }
+        .example-3-item {
+        margin: 2px;
+        /* background: #8ee391; */
+        }
+        .indent {
+        border: 1px dashed #ccc;
+        }
+        .indent-item {
+
+        width: 1500 px;
+        height: 2px;
+        margin: 15px;
+        /* background: #ccc; */
+
+        .text_novig{
+        flex-direction: column;
+        }
+
+
+
+
+
+
+    </style>
+
+
+  </head>
+<header>
+  <nav>
+
+      <h1 align="center" class="glaf"><a href="/" style="color: #FFFFFF">Назад</a>
+       <a href="/forms" style="color: #FFFFFF" >Регистрация</a></h1>
+
+  </nav>
+
+
+
+</header>
+<body  background=https://img.freepik.com/free-vector/white-rhombus-pattern_1053-249.jpg?w=826&t=st=1680111309~exp=1680111909~hmac=a383c41c932752531235b375eabc4cebcfb13b39c71254f8adf62c7f479fc13f>
+<center>
+<h1>Регистрация</h1>
 <form method="post">
     {% csrf_token %}
     {{form.name}} <br>
@@ -13,8 +137,6 @@
     {{form.mail}} <br>
     <button type="submit">Зарегистрироваться</button>
 </form>
-<style>
-
-</style>
+    </center>
 </body>
 </html>
