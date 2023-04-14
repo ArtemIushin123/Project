@@ -13,7 +13,7 @@ def main_page(request):
     import pyodbc
     # костыли{
     def get_all_clients():
-        connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
+        connection_string = 'DRIVER={SQL Server};SERVER=WIN-MQA3LH805ND\MSSQLSERVER02;DATABASE=DOCTOR;'#WIN-MQA3LH805ND\MSSQLSERVER02 или LAPTOP-6J346A01 бля всё из-за конкшен стринги то она работает то нет (при первом запуске)
         connection = pyodbc.connect(connection_string)
         cursor = connection.cursor()
         cursor.execute('exec del_all_and_add_test')
@@ -32,14 +32,18 @@ def main_page(request):
     a19 = ['19:00']
     a20 = ['20:00']
 
-
-
-    nn = 8  # допустимые значения: 1 8 15
-
-    nn = 1 #допустимые значения: 1 8 15
-
+    global nn # Обьявляем переменную глобальной
+    def plus():
+        if nn!=15:
+            nn += 7
+            print(nn)
+    def minus():
+        if nn!=1:
+            nn -= 7
+            print(nn)
 
     nn = 1  # допустимые значения: 1 8 15
+
     nk = nn + 7
 
     b = get_all_clients()
@@ -278,6 +282,8 @@ def main_page(request):
     ddmmyyyyn = str(nn) + ":01:" + "2066"
     ddmmyyyyk = str(nk) + ":01:" + "2066"
 
+
+
     data = {
         'hk': a,
         # формат переменной a это двумерный массив где: '8:00' это время записи 0 свободно 1 занято [['8:00', 0, 1, 0, 0, 1, 0, 1], ['8:30', 1, 1, 1, 1, 0, 0, 1], ['9:00', 1, 1, 0, 0, 1, 0, 1], ['9:30', 1, 0, 0, 0, 1, 0, 1], ['10:00', 0, 0, 0, 0, 1, 0, 0], ['10:30', 0, 1, 1, 1, 0, 0, 1], ['11:00', 1, 1, 0, 1, 1, 0, 0]
@@ -285,7 +291,6 @@ def main_page(request):
         'DDMMYYYYk': ddmmyyyyk,  # это день, месяц, год (конец недели)
     }
     return render(request, "main/index.html", data)
-
 
 # <<<<<<< HEAD
 # =======
