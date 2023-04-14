@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 from django.shortcuts import render, redirect
 from .forms import *
+=======
+from django.shortcuts import render
+>>>>>>> Stashed changes
 import sys
 import os
 
@@ -31,7 +35,11 @@ def main_page(request):
     a19 = ['19:00']
     a20 = ['20:00']
 
+<<<<<<< Updated upstream
     nn = 8  # допустимые значения: 1 8 15
+=======
+    nn = 1 #допустимые значения: 1 8 15
+>>>>>>> Stashed changes
     nk = nn + 7
 
     b = get_all_clients()
