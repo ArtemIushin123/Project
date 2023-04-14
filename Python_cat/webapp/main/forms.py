@@ -1,5 +1,5 @@
 from .models import *
-from django.forms import ModelForm, TextInput, NumberInput, DateInput
+from django.forms import ModelForm, TextInput, NumberInput, DateInput, EmailInput
 
 
 class client_form(ModelForm):
@@ -16,7 +16,7 @@ class client_form(ModelForm):
                 'class': '',
                 'placeholder': 'Введите номер телефона'
             }),
-            'mail': TextInput(attrs={
+            'mail': EmailInput(attrs={
                 'class': '',
                 'placeholder': 'Введите почту'
             })}

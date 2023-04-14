@@ -1,9 +1,6 @@
-#<<<<<<< Updated upstream
 from django.shortcuts import render, redirect
 from .forms import *
-#=======
 from django.shortcuts import render
-#>>>>>>> Stashed changes
 import sys
 import os
 
@@ -16,7 +13,7 @@ def main_page(request):
     import pyodbc
     # костыли{
     def get_all_clients():
-        connection_string = 'DRIVER={SQL Server};SERVER=WIN-MQA3LH805ND\MSSQLSERVER02;DATABASE=DOCTOR;'
+        connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
         connection = pyodbc.connect(connection_string)
         cursor = connection.cursor()
         cursor.execute('exec del_all_and_add_test')
@@ -35,15 +32,14 @@ def main_page(request):
     a19 = ['19:00']
     a20 = ['20:00']
 
-<<<<<<< refs/remotes/origin/main
+
 
     nn = 8  # допустимые значения: 1 8 15
 
     nn = 1 #допустимые значения: 1 8 15
 
-=======
+
     nn = 1  # допустимые значения: 1 8 15
->>>>>>> fix ука
     nk = nn + 7
 
     b = get_all_clients()
@@ -306,7 +302,10 @@ def get_test(request):
 def forms_page(request):
     if request.method == 'POST':
         form = client_form(request.POST)
-        return redirect('http://127.0.0.1:8000/')  # не понял как Максим на уроке сделал норм переход
+        if form.is_valid():
+            mistake = 'Ошибка!!!'
+        else:
+            return redirect('http://127.0.0.1:8000/')  # не понял как Максим на уроке сделал норм переход
 
     data = {
         'form': client_form(),
