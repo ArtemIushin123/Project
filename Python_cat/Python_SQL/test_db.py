@@ -1,8 +1,9 @@
 import pyodbc
 
 
+# WIN-MQA3LH805ND\MSSQLSERVER02 или LAPTOP-6J346A01 шоб не мучались
 def get_all_clients():
-    connection_string = 'DRIVER={SQL Server};SERVER=WIN-MQA3LH805ND\MSSQLSERVER02;DATABASE=DOCTOR;'
+    connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
     connection = pyodbc.connect(connection_string)
     cursor = connection.cursor()
     cursor.execute('select DataTime from timetable')

@@ -1,3 +1,4 @@
+import pyodbc as pyodbc
 from django.shortcuts import render, redirect
 from .forms import *
 from django.shortcuts import render
@@ -12,8 +13,11 @@ from Python_cat.Python_SQL import test_db
 def main_page(request):
     import pyodbc
     # костыли{
+    # WIN-MQA3LH805ND\MSSQLSERVER02 или LAPTOP-6J346A01 шоб не мучаться
+
+
     def get_all_clients():
-        connection_string = 'DRIVER={SQL Server};SERVER=WIN-MQA3LH805ND\MSSQLSERVER02;DATABASE=DOCTOR;'#WIN-MQA3LH805ND\MSSQLSERVER02 или LAPTOP-6J346A01 бля всё из-за конкшен стринги то она работает то нет (при первом запуске)
+        connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
         connection = pyodbc.connect(connection_string)
         cursor = connection.cursor()
         cursor.execute('exec del_all_and_add_test')
@@ -301,7 +305,7 @@ def get_test(request):
     return render(request, 'main/test.html', data)
 
 
-# >>>>>>> main
+
 
 
 def forms_page(request):
@@ -317,3 +321,10 @@ def forms_page(request):
 
     }
     return render(request, 'main/forms.html', data)
+
+def create_user(name, telephone, mail):
+    connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR'
+    connection = pyodbc.connect(connection_string)
+    cursor = connection.cursor()
+
+    cursor.execute(f"createUser '{name}', '{telephone}', '{mail}' 0")
