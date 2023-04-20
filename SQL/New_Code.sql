@@ -5,6 +5,7 @@ CREATE TABLE [Client] (
 	Id int Primary key identity,
 	Client_Name nvarchar(30) NOT NULL,
 	Telephone nvarchar(30) NOT NULL,
+	Mail nvarchar(30) NOT NULL,
 	Client_city nvarchar(30) NOT NULL,
 )
 GO

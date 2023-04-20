@@ -296,31 +296,22 @@ def main_page(request):
     }
     return render(request, "main/index.html", data)
 
-# <<<<<<< HEAD
-# =======
-def get_test(request):
-    data = {
-        'clients': test_db.get_all_clients()
-    }
-    return render(request, 'main/test.html', data)
-
-
-
-
 
 def forms_page(request):
     if request.method == 'POST':
         form = client_form(request.POST)
         if form.is_valid():
-            mistake = 'Ошибка!!!'
-        else:
-            return redirect('http://127.0.0.1:8000/')  # не понял как Максим на уроке сделал норм переход
+        #main.createevent(userId, request.POST['name'], request.POST['telephone'], request.POST['mail'])
+            return redirect('index')
 
     data = {
         'form': client_form(),
 
     }
     return render(request, 'main/forms.html', data)
+
+
+
 
 def create_user(name, telephone, mail):
     connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR'

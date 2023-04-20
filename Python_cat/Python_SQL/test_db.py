@@ -13,6 +13,9 @@ def get_all_clients():
     return result
 
 
+
+
+
 a13 = ['13:00']
 a14 = ['14:00']
 a15 = ['15:00']
@@ -257,3 +260,14 @@ a.append(a17)
 a.append(a18)
 a.append(a19)
 a.append(a20)
+
+
+def add_client(ClientId, telephone, mail):
+    connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
+    connection = pyodbc.connect(connection_string)
+    cursor = connection.cursor()
+
+    cursor.execute(f"add_client {ClientId}, {telephone}, {mail}, 0")
+
+    connection.commit()
+    connection.close()
