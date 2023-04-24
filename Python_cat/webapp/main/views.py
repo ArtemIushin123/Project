@@ -1,15 +1,16 @@
 import pyodbc as pyodbc
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from .forms import *
 from django.shortcuts import render
 import sys
 import os
 
+0
+
 sys.path.insert(1, os.path.join(sys.path[0], '../..'))
 from Python_cat.Python_SQL import test_db
 
 
-# Create your views here.
 def main_page(request):
     import pyodbc
     # костыли{
@@ -37,6 +38,8 @@ def main_page(request):
     a20 = ['20:00']
 
     global nn # Обьявляем переменную глобальной
+
+
     def plus():
         if nn!=15:
             nn += 7
@@ -301,16 +304,14 @@ def forms_page(request):
     if request.method == 'POST':
         form = client_form(request.POST)
         if form.is_valid():
-        #main.createevent(userId, request.POST['name'], request.POST['telephone'], request.POST['mail'])
+            test_db.add_client(request.POST['name'], request.POST['telephone'], request.POST['mail'])
             return redirect('index')
 
     data = {
-        'form': client_form(),
+        'form': client_form,
 
     }
     return render(request, 'main/forms.html', data)
-
-
 
 
 def create_user(name, telephone, mail):
@@ -319,3 +320,25 @@ def create_user(name, telephone, mail):
     cursor = connection.cursor()
 
     cursor.execute(f"createUser '{name}', '{telephone}', '{mail}' 0")
+
+'''def form_data():
+    form_names = []
+    form_descriptions = []
+    form_locations = []
+    form_Ids = []
+
+    notes = test_db.add_client(Client_Name)
+    for i in range(len(notes)):
+        form_names.append(notes[i][3])
+        form_descriptions.append(notes[i][4])
+        form_locations.append(notes[i][5])
+        form_Ids.append(notes[i][2])
+
+    data = {
+        'form': client_form,
+        'noteNames': form_names,
+        'noteDescriptions': form_descriptions,
+        'noteLocations': form_locations,
+        'noteIds': form_Ids
+    }
+    return data'''
