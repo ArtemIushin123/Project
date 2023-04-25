@@ -5,11 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.main_page),
     path('index', views.main_page, name='index'),
-<<<<<<< HEAD
     path('forms', views.forms_page)
-=======
-    path('forms', views.forms_page),
-    path('Client', views.forms_page, name='Client')
->>>>>>> main
 
 ]

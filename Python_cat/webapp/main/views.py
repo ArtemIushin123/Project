@@ -5,12 +5,6 @@ from django.shortcuts import render
 import sys
 import os
 
-<<<<<<< HEAD
-
-=======
-0
->>>>>>> main
-
 sys.path.insert(1, os.path.join(sys.path[0], '../..'))
 from Python_cat.Python_SQL import test_db
 
@@ -308,49 +302,12 @@ def forms_page(request):
     if request.method == 'POST':
         form = client_form(request.POST)
         if form.is_valid():
-<<<<<<< HEAD
             test_db.add_client(f"'{request.POST['name']},{request.POST['telephone']}, {request.POST['mail']}, {request.POST['client_city']}'")
-=======
-            test_db.add_client(request.POST['name'], request.POST['telephone'], request.POST['mail'])
->>>>>>> main
             return redirect('index')
 
     data = {
         'form': client_form,
 
     }
-<<<<<<< HEAD
-    return render(request, 'main/forms.html', data)
-=======
     return render(request, 'main/forms.html', data)
 
-
-def create_user(name, telephone, mail):
-    connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR'
-    connection = pyodbc.connect(connection_string)
-    cursor = connection.cursor()
-
-    cursor.execute(f"createUser '{name}', '{telephone}', '{mail}' 0")
-
-'''def form_data():
-    form_names = []
-    form_descriptions = []
-    form_locations = []
-    form_Ids = []
-
-    notes = test_db.add_client(Client_Name)
-    for i in range(len(notes)):
-        form_names.append(notes[i][3])
-        form_descriptions.append(notes[i][4])
-        form_locations.append(notes[i][5])
-        form_Ids.append(notes[i][2])
-
-    data = {
-        'form': client_form,
-        'noteNames': form_names,
-        'noteDescriptions': form_descriptions,
-        'noteLocations': form_locations,
-        'noteIds': form_Ids
-    }
-    return data'''
->>>>>>> main
