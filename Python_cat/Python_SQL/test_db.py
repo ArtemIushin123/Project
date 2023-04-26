@@ -266,7 +266,8 @@ def add_client(name, telephone, mail, client_city):
     connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
     connection = pyodbc.connect(connection_string)
     cursor = connection.cursor()
-    cursor.execute(f"exec add_client {name}, {telephone}, {mail}, {client_city}")
+    cursor.execute(f"exec add_client '{name}', '{telephone}', '{mail}', '{client_city}'")
+    print(f"exec add_client '{name}', '{telephone}', '{mail}', '{client_city}'")
     connection.commit()
     print("committted")
     connection.close()

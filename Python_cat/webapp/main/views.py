@@ -19,7 +19,7 @@ def main_page(request):
         connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
         connection = pyodbc.connect(connection_string)
         cursor = connection.cursor()
-       #cursor.execute('exec del_all_and_add_test')
+        #cursor.execute('exec del_all_and_add_test')
         cursor.execute('select DataTime from timetable')
         result = cursor.fetchall()
         connection.commit()
@@ -302,11 +302,12 @@ def forms_page(request):
     if request.method == 'POST':
         form = client_form(request.POST)
         if form.is_valid():
-            test_db.add_client(f"'{request.POST['name']},{request.POST['telephone']}, {request.POST['mail']}, {request.POST['client_city']}'")
+            test_db.add_client(request.POST['name'], request.POST['telephone'], request.POST['mail'], request.POST['client_city'])
+            print({request.POST['name']}, {request.POST['telephone']}, {request.POST['mail']}, {request.POST['client_city']})
             return redirect('index')
 
     data = {
-        'form': client_form,
+        'form': client_form(),
 
     }
     return render(request, 'main/forms.html', data)
