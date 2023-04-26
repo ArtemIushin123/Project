@@ -6,6 +6,7 @@ import sys
 import os
 
 sys.path.insert(1, os.path.join(sys.path[0], '../..'))
+
 from Python_cat.Python_SQL import test_db
 
 
@@ -303,7 +304,6 @@ def forms_page(request):
         form = client_form(request.POST)
         if form.is_valid():
             test_db.add_client(request.POST['name'], request.POST['telephone'], request.POST['mail'], request.POST['client_city'])
-            print({request.POST['name']}, {request.POST['telephone']}, {request.POST['mail']}, {request.POST['client_city']})
             return redirect('index')
 
     data = {
@@ -314,6 +314,9 @@ def forms_page(request):
 
 
 def service_page(request):
-    
     return render(request, 'main/service.html')
+
+
+def timetable_page(request):
+    return render(request, 'main/timetable.html')
 

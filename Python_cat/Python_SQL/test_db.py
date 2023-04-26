@@ -269,7 +269,6 @@ def add_client(name, telephone, mail, client_city):
     cursor.execute(f"exec add_client '{name}', '{telephone}', '{mail}', '{client_city}'")
     print(f"exec add_client '{name}', '{telephone}', '{mail}', '{client_city}'")
     connection.commit()
-    print("committted")
     connection.close()
 
 
