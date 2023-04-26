@@ -312,3 +312,8 @@ def forms_page(request):
     }
     return render(request, 'main/forms.html', data)
 
+
+def service_page(request):
+    
+    return render(request, 'main/service.html')
+
