@@ -10,23 +10,42 @@ sys.path.insert(1, os.path.join(sys.path[0], '../..'))
 from Python_cat.Python_SQL import test_db
 
 
+def get_all_clients():
+    connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
+    connection = pyodbc.connect(connection_string)
+    cursor = connection.cursor()
+    cursor.execute('select DataTime from timetable')
+    result = cursor.fetchall()
+    connection.commit()
+    connection.close()
+    return result
 def main_page(request):
     import pyodbc
     # костыли{
     # WIN-MQA3LH805ND\MSSQLSERVER02 или LAPTOP-6J346A01 шоб не мучаться
 
+    return render(request, "main/index.html")
 
-    def get_all_clients():
-        connection_string = 'DRIVER={SQL Server};SERVER=LAPTOP-6J346A01;DATABASE=DOCTOR;'
-        connection = pyodbc.connect(connection_string)
-        cursor = connection.cursor()
-        #cursor.execute('exec del_all_and_add_test')
-        cursor.execute('select DataTime from timetable')
-        result = cursor.fetchall()
-        connection.commit()
-        connection.close()
-        return result
 
+def forms_page(request):
+    if request.method == 'POST':
+        form = client_form(request.POST)
+        if form.is_valid():
+            test_db.add_client(request.POST['name'], request.POST['telephone'], request.POST['mail'], request.POST['client_city'])
+            return redirect('index')
+
+    data = {
+        'form': client_form(),
+
+    }
+    return render(request, 'main/forms.html', data)
+
+
+def service_page(request):
+    return render(request, 'main/service.html')
+
+
+def timetable_page(request):
     a13 = ['13:00']
     a14 = ['14:00']
     a15 = ['15:00']
@@ -287,36 +306,11 @@ def main_page(request):
     # }
     ddmmyyyyn = str(nn) + ":01:" + "2066"
     ddmmyyyyk = str(nk) + ":01:" + "2066"
-
-
-
     data = {
         'hk': a,
-        # формат переменной a это двумерный массив где: '8:00' это время записи 0 свободно 1 занято [['8:00', 0, 1, 0, 0, 1, 0, 1], ['8:30', 1, 1, 1, 1, 0, 0, 1], ['9:00', 1, 1, 0, 0, 1, 0, 1], ['9:30', 1, 0, 0, 0, 1, 0, 1], ['10:00', 0, 0, 0, 0, 1, 0, 0], ['10:30', 0, 1, 1, 1, 0, 0, 1], ['11:00', 1, 1, 0, 1, 1, 0, 0]
+     # формат переменной a это двумерный массив где: '8:00' это время записи 0 свободно 1 занято [['8:00', 0, 1, 0, 0, 1, 0, 1], ['8:30', 1, 1, 1, 1, 0, 0, 1], ['9:00', 1, 1, 0, 0, 1, 0, 1], ['9:30', 1, 0, 0, 0, 1, 0, 1], ['10:00', 0, 0, 0, 0, 1, 0, 0], ['10:30', 0, 1, 1, 1, 0, 0, 1], ['11:00', 1, 1, 0, 1, 1, 0, 0]
         'DDMMYYYYn': ddmmyyyyn,  # это день, месяц, год (начало недели)
         'DDMMYYYYk': ddmmyyyyk,  # это день, месяц, год (конец недели)
     }
-    return render(request, "main/index.html", data)
-
-
-def forms_page(request):
-    if request.method == 'POST':
-        form = client_form(request.POST)
-        if form.is_valid():
-            test_db.add_client(request.POST['name'], request.POST['telephone'], request.POST['mail'], request.POST['client_city'])
-            return redirect('index')
-
-    data = {
-        'form': client_form(),
-
-    }
-    return render(request, 'main/forms.html', data)
-
-
-def service_page(request):
-    return render(request, 'main/service.html')
-
-
-def timetable_page(request):
-    return render(request, 'main/timetable.html')
+    return render(request, 'main/timetable.html', data)
 

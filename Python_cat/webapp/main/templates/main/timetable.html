@@ -38,7 +38,7 @@
         margin-left:50rem;
         }
                 .text-block-tadle {
-        margin-left:41rem;
+        margin-left:43rem;
         }
 
         flex-direction: column;
@@ -121,12 +121,61 @@
 
 
 </header>
-<body>
+<body  background=https://img.freepik.com/free-vector/white-rhombus-pattern_1053-249.jpg?w=826&t=st=1680111309~exp=1680111909~hmac=a383c41c932752531235b375eabc4cebcfb13b39c71254f8adf62c7f479fc13f>
 <div>
   <h1 class="glaf"><center><strong>Выбрать дату и время</strong></center></h1>
 </div>
 <div>
-    с этой страницы мы будем попадать на форму с вводом имени и тд
+
+
+       <center><div   id="appointment">
+           <button class="DodgerBlue"><p><</p></button>
+
+           <button  class="DeepSkyBlue"><p>{{DDMMYYYYn}}-{{DDMMYYYYk}}</p></button>
+
+           <button class="DodgerBlue"><p>></p></button>
+
+
+       </div></center>
+
+
+<div  class="text-block-tadle">
+
+  		<table>
+  <thead>
+    <tr>
+      <th>время</th>
+      <th>пн</th>
+      <th>вт</th>
+      <th>ср</th>
+	  <th>чт</th>
+      <th>пт</th>
+      <th>сб</th>
+	  <th>вс</th>
+    </tr>
+
+  </thead>
+    <tbody>
+                        {% for i in hk %}
+                                <tr>
+                                    {% for j in i %}
+                                            {% if j == 1 %}
+                                                <td><button class="red"><p>запись</p></button></td>
+                                            {% else %}
+                                                {% if j == 0 %}
+                                    <td><button class ="green"><p>запись</p></button></td>
+                                                {% else %}
+                                                    <td>{{j}}</td>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                </tr>
+                        {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+
 </div>
 </body>
 </html>
